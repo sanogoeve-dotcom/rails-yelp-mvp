@@ -7,3 +7,20 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# db/seeds.rb
+Restaurant.destroy_all
+
+puts "Creating restaurants..."
+
+beijing = { name: "Beijing Garden", address: "12 rue de Belleville, Paris", category: "chinese", phone_number: "0142080000" }
+la_trattoria = { name: "La Trattoria", address: "45 viale Roma, Milan", category: "italian", phone_number: "0212345678" }
+sushi_shop = { name: "Sushi Shop", address: "8 boulevard Saint-Germain, Paris", category: "japanese", phone_number: "0143256789" }
+epicure = { name: "Epicure", address: "112 rue du Faubourg Saint-Honoré, Paris", category: "french", phone_number: "0153434343" }
+brussels_moules = { name: "Chez Leon", address: "18 rue des Bouchers, Bruxelles", category: "belgian", phone_number: "025111415" }
+
+[beijing, la_trattoria, sushi_shop, epicure, brussels_moules].each do |attributes|
+  restaurant = Restaurant.create!(attributes)
+  puts "Created #{restaurant.name}"
+end
+
+puts "Finished!"
